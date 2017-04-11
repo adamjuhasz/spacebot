@@ -4,4 +4,5 @@ addGreeting(function(user, response){
     response
         .sendText('Welcome to spacebot')
         .sendText('I love space!');
+    response.startScript('profile');
 });
