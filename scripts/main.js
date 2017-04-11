@@ -9,6 +9,6 @@ newScript()
         response
             .createButtons()
             .text('What do you want to do?')
-            .button('postback', 'Photo of the day', 'POTD')
+            .addbutton('postback', 'Photo of the day', 'POTD')
             .send();
     })
