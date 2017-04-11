@@ -1,7 +1,7 @@
 // Created Tue Apr 11 2017
 newScript('profile')
     .dialog('nickname', (session, response) => {
-        console.log('starting profile');
+        console.log(session.user.state);
         response.sendText('What should I call you?');
     })
     .expect
