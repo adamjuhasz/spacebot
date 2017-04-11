@@ -8,7 +8,7 @@ newScript()
     .dialog(function(session, response) {
         response
             .createButtons()
-            .text('What do you want to do?')
+            .text(`${session.user.state.name} What do you want to do?`)
             .addButton('postback', 'Photo of the day', 'POTD')
             .send();
     })
