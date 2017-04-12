@@ -16,7 +16,7 @@ const questions = [{
     wrong: ['1.4', '60', '76'],    
 }]
 
-newScript('trivia')
+newScript('TRIVIA')
     .dialog((session, response) => {
         const questionNumber = Math.floor(Math.random()*questions.length);
         session.user.state.questionNumber = questionNumber;
