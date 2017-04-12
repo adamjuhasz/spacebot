@@ -12,6 +12,10 @@ newScript()
             .addButton('postback', 'Photo of the day', 'POTD')
             .send();
     })
-    .expect.text((session, response) => {
-        response.sendText('Please click a button');
-    })
+    .expect
+        .text((session, response) => {
+            response.sendText('Please click a button');
+        })
+        .button('POTD', (session, response) => {
+            response.startScript('POTD');
+        })
