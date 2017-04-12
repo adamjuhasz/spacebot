@@ -21,6 +21,7 @@ newScript('TRIVIA')
         const questionNumber = Math.floor(Math.random()*questions.length);
         console.log(questionNumber);
         const current = questions[session.user.state.questionNumber];
+        console.log(current);
         session.user.state.trivia = current;
         const buttons = response.createButtons()
             .text(current.question)
