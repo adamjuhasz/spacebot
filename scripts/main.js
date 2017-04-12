@@ -5,7 +5,7 @@
 // request
 
 newScript()
-    .dialog(function(session, response) {
+    .dialog('start', function(session, response) {
         response
             .createButtons()
             .text(`Hi ${session.user.state.name}, what do you want to do?`)
@@ -16,6 +16,7 @@ newScript()
     .expect
         .text((session, response) => {
             response.sendText('Please click a button');
+            response.goto('start');
         })
         .button('POTD', (session, response) => {
             response.startScript('POTD');
