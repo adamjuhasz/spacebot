@@ -1,7 +1,7 @@
 // Created Tue Apr 11 2017
 newScript('profile')
     .dialog('nickname', (session, response) => {
-        Promise.delay(500)
+        return Promise.delay(500)
             .then(() => response.sendText('What should I call you?'));
     })
     .expect
