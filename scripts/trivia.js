@@ -1,6 +1,6 @@
 // Created Wed Apr 12 2017
 
-[{
+const questions = [{
     question: 'What type of galaxy is the most common in the universe?',
     correct: 'Elliptical',
     wrong: ['Spiral','Irregular']
@@ -17,4 +17,13 @@
 }]
 
 newScript('trivia')
-    .
+    .dialog((session, response) => {
+        const questionNumber = Math.floor(Math.random()*questions.length);
+        session.user.state.questionNumber = questionNumber;
+        const current = questions[questionNumber];
+        const buttons = response.createButtons()
+            .text(current.question)
+            .addButton('postback', current.correct, current.correct);
+        current.wrong.forEach(answer => buttons.addButton('postback', answer, answer));
+        buttons.send();
+    })
