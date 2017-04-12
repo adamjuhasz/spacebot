@@ -17,7 +17,7 @@ const questions = [{
 }]
 
 newScript('TRIVIA')
-    .dialog((session, response) => {
+    .dialog('start', (session, response) => {
         const questionNumber = Math.floor(Math.random()*questions.length);
         const current = questions[session.user.state.questionNumber];
         session.user.state.trivia = current;
@@ -36,10 +36,26 @@ newScript('TRIVIA')
             response.sendText('NO :(');
         }
     })
-    .dialog((session, response) => {
+    .dialog('menu', (session, response) => {
         response.createButtons()
             .text('Another question?')
             .addButton('postback', 'Yes', 'NEXT_QUESTION')
             .addButton('postback', 'No', 'MENU')
             .send();
     })
+    .expect
+        .button('NEXT_QUESTION', (session, response) => {
+            response.goto('start');
+        })
+        .button('MENU', (session, response) => {
+        })
+        .intent('general', 'yes', (session, response) => {
+            response.goto('start');
+        })
+        .intent('general', 'no', (session, response) => {
+        })
+        .catch((session, response) => {
+            response.sendText('huh?');
+            response.goto('menu');
+        })
+
