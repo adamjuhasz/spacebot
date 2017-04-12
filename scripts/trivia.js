@@ -20,7 +20,7 @@ newScript('TRIVIA')
     .dialog('start', (session, response) => {
         const questionNumber = Math.floor(Math.random()*questions.length);
         console.log(questionNumber);
-        const current = questions[session.user.state.questionNumber];
+        const current = questions[questionNumber];
         console.log(current);
         session.user.state.trivia = current;
         const buttons = response.createButtons()
