@@ -12,4 +12,5 @@ newScript('POTD')
         .then(apod => {
             response.sendImage(apod.url);
         })
+        .delay(1000)
     })
