@@ -1,9 +1,3 @@
-// Globals
-// newScript
-// getScript
-// addGreeting
-// request
-
 newScript()
     .dialog('start', function(session, response) {
         response
