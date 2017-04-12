@@ -19,11 +19,27 @@ const questions = [{
 newScript('TRIVIA')
     .dialog((session, response) => {
         const questionNumber = Math.floor(Math.random()*questions.length);
-        session.user.state.questionNumber = questionNumber;
-        const current = questions[questionNumber];
+        const current = questions[session.user.state.questionNumber];
+        session.user.state.trivia = current;
         const buttons = response.createButtons()
             .text(current.question)
             .addButton('postback', current.correct, current.correct);
         current.wrong.forEach(answer => buttons.addButton('postback', answer, answer));
         buttons.send();
+    })
+    .expect
+    .button((session, response) => {
+        const current = session.user.state.trivia;
+        if (session.message.payload === current.correct) {
+            response.sendText('YES!');
+        } else {
+            response.sendText('NO :(');
+        }
+    })
+    .dialog((session, response) => {
+        response.createButtons()
+            .text('Another question?')
+            .addButton('postback', 'Yes', 'NEXT_QUESTION')
+            .addButton('postback', 'No', 'MENU')
+            .send();
     })
