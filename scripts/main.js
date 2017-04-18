@@ -2,7 +2,7 @@ newScript()
     .dialog('start', function(session, response) {
         response
             .createButtons()
-            .text(`Hi ${session.user.state.name}, what do you want to do?`)
+            .text(`Hello ${session.user.state.name}, what do you want to do?`)
             .addButton('postback', 'Photo of the day', 'POTD')
             .addButton('postback', 'Space trivia', 'TRIVIA')
             .send();
