@@ -50,4 +50,3 @@ test('potd mock', function(){
         .expectImage('https://image.jpg')
     return test.run();
 });
-
