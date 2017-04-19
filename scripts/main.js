@@ -8,8 +8,7 @@ addGreeting(function(user, response){
 
 newScript('profile')
     .dialog('nickname', (session, response) => {
-        return Promise.delay(500)
-            .then(() => response.sendText('What should I call you?'));
+        response.sendText('What should I call you?');
     })
     .expect
         .text((session, response) => {
