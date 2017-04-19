@@ -48,6 +48,6 @@ test('potd mock', function(){
     doGreeting(test);
     test.sendButtonClick('POTD')
         .expectImage('https://image.jpg')
-    return rest.run();
+    return test.run();
 });
 
