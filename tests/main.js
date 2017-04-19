@@ -34,3 +34,11 @@ test('auto-do', function(){
     doGreeting(test);
     return test.run();
 });
+
+test('potd regex', function(){
+    const test = newTest();
+    doGreeting(test);
+    test.sendButtonClick('POTD')
+        .expectImage(/https:/)
+    return test.run();
+})
