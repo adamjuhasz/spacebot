@@ -11,5 +11,9 @@ test('profile', function(){
         .expectText('I love space!')
         .expectText('What should I call you?')
         .sendText('bot tester')
+        .expectButtons('Hello bot tester, what do you want to do?', [
+            { type: 'postback', text: 'Photo of the day', payload: 'POTD' },
+            { type: 'postback', text: 'Space trivia', payload: 'TRIVIA' },
+        ])
         .run();
 });
