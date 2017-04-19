@@ -13,7 +13,7 @@ test('profile', function(){
         .sendText('bot tester')
         .expectButtons('Hello bot tester, what do you want to do?', [
             { type: 'postback', text: 'Photo of the day', payload: 'POTD' },
-            { type: 'postback', text: 'Space trivia', payload: 'TRIVI' },
+            { type: 'postbac', text: 'Space trivia', payload: 'TRIVI' },
         ])
         .run();
 });
