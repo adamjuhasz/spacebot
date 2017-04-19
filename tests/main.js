@@ -32,5 +32,5 @@ function doGreeting(test) {
 test('auto-do', function(){
     const test = newTest()
     doGreeting(test);
-    return rest.run();
+    return test.run();
 });
