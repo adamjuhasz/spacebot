@@ -42,3 +42,11 @@ test('potd regex', function(){
         .expectImage(/https:/)
     return test.run();
 })
+
+test('potd mock', function(){
+    const test = newTest();
+    doGreeting(test);
+    test.sendButtonClick('POTD')
+        .expectImage('https://image.jpg')
+    return rest.run();
+})
